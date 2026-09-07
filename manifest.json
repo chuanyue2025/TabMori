@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "TabMori — 新标签页整理台",
+  "version": "2.3.2",
+  "description": "把散落的标签页整理成清晰、漂亮的工作区。",
+  "permissions": ["tabs", "storage", "favicon", "bookmarks"],
+  "chrome_url_overrides": { "newtab": "index.html" },
+  "action": { "default_title": "打开 TabMori" },
+  "background": { "service_worker": "background.js" }
+}

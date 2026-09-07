@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TabMori</title><link rel="stylesheet" href="design.css"><link rel="stylesheet" href="comfort.css"></head>
+<body><div class="shell">
+<aside class="rail" aria-label="主导航"><div class="brand"><span class="brand-mark" id="brandMark">T</span><button id="brandName" title="点击修改名称" aria-label="修改页面名称">TabMori</button></div><nav>
+<button class="nav active" data-view="all"><span>全部标签</span><b id="navCount">0</b></button>
+<button class="nav" data-view="saved"><span>稍后阅读</span><b id="savedCount">0</b></button>
+<button class="nav" data-view="duplicates"><span>重复页面</span><b id="dupeCount">0</b></button>
+<button class="nav" data-view="bookmarks"><span>Chrome 收藏</span><b id="bookmarkCount">0</b></button></nav><p class="privacy">本地运行<br>数据不会离开浏览器</p></aside>
+<main><header><div><p class="eyebrow" id="dateText"></p><h1>标签空间</h1><p class="summary"><strong id="tabCount">0</strong> 个标签，分布在 <strong id="groupCount">0</strong> 个空间</p></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" aria-label="搜索当前列表" placeholder="搜索当前列表"><kbd>Ctrl K</kbd></label></header>
+<section class="section-line"><div><h2 id="viewTitle">全部标签</h2><p id="viewSub">按站点自动整理</p></div><button id="cleanDupes" class="clean-btn">清理重复页面</button></section>
+<section id="grid" class="grid"></section><section id="empty" class="empty hidden"><strong>没有内容</strong><p>换个关键词，或者打开一些新页面。</p></section></main></div>
+<dialog id="nameDialog"><form id="nameForm"><label for="nameInput">页面名称（最多 10 个字）</label><input id="nameInput" autocomplete="off" placeholder="我的空间" aria-describedby="nameError"><p id="nameError" class="name-error" role="alert"></p><div><button type="button" id="cancelName">取消</button><button type="submit" class="primary">保存</button></div></form></dialog><div id="toast" class="toast" role="status" aria-live="polite"></div><script src="app.js"></script></body></html>

@@ -1,0 +1,26 @@
+:root{--page:#f7f5f0;--ink:#24483f;--text:#252927;--muted:#6f756f;--line:#d7d3ca;--card:#fff;--soft:#efede7}
+html,body{background:var(--page)}
+.rail{background:var(--page);border-color:var(--line)}
+.brand-mark{background:var(--ink)}
+.nav:hover{border-color:#a8afa9;background:#fff}
+.nav.active{background:var(--ink);color:#fff}
+header{border-color:var(--line)}
+.search{background:#fff;border-color:#b9bdb8}
+.search:focus-within{border-color:var(--ink);outline-color:#a8cfc2}
+.clean-btn{border-color:var(--ink);color:var(--ink);background:transparent}
+.clean-btn:hover{background:var(--ink);color:#fff}
+.group{background:var(--card);color:var(--text);border:1px solid var(--line)}
+.domain-icon{border-color:#9aa49e;color:var(--ink);background:#edf3f0}
+.group-title h3,.tab-title{color:var(--text)}
+.group-title p,.tab-url{color:var(--muted)}
+.tab-row{border-color:#ece9e2}
+.tab-row:hover{background:#f6f4ef;border-radius:10px;padding-left:8px;padding-right:8px}
+.row-actions button{border-color:#adb4af;color:var(--ink)}
+.row-actions button:hover{background:var(--ink);color:#fff}
+.group-footer{border-color:var(--line)}
+.group-footer button{border-color:#aeb5b0;color:var(--ink)}
+.group-footer button:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.empty{background:#fff;border-color:var(--line)}
+.toast{background:var(--ink)}
+@media(max-width:900px){.rail{border-color:var(--line)}}
+.brand #brandName{min-width:0;max-width:140px;padding:4px 6px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--text);font:700 20px inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;text-align:left}.brand #brandName:hover{border-color:var(--line);background:#fff}.brand #brandName:focus-visible{outline:3px solid #a8cfc2;outline-offset:2px}.room-heading{display:flex;align-items:center;gap:12px}.room-heading h1{max-width:520px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}dialog{width:min(420px,calc(100% - 32px));padding:24px;border:1px solid var(--line);border-radius:20px;background:#fff;color:var(--text)}dialog::backdrop{background:rgba(36,40,37,.28)}#nameForm{display:flex;flex-direction:column;gap:16px}#nameForm label{font-size:14px;font-weight:600}#nameForm input{width:100%;height:48px;padding:0 14px;border:1px solid #9da49f;border-radius:12px;font:16px inherit;outline:0}#nameForm input:focus{border-color:var(--ink);outline:3px solid #a8cfc2}#nameForm>div{display:flex;justify-content:flex-end;gap:8px}#nameForm button{padding:9px 16px;border:1px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);font:600 14px inherit;cursor:pointer}#nameForm button.primary{background:var(--ink);color:#fff}.name-error{min-height:18px;margin:-8px 0 0;color:#b42318;font-size:12px}
