@@ -8,171 +8,251 @@
   <style>
     :root {
       color-scheme: light;
-      --ink: #16231c;
-      --muted: #65736a;
-      --line: #dfe5dc;
-      --paper: #fbfaf6;
-      --card: #ffffff;
-      --sage: #245447;
-      --sage-soft: #e7f0e8;
-      --blue: #e7eff8;
-      --peach: #f9e7dc;
+      --bg: #f7f5ef;
+      --ink: #15231d;
+      --muted: #607069;
+      --line: #d9dfd7;
+      --card: #fffdf8;
+      --green: #245447;
+      --green-2: #dfece2;
+      --blue: #e8f0f8;
+      --peach: #f8e5da;
+      --lav: #eee9fb;
+      --shadow: 0 24px 80px rgba(37, 53, 45, .14);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      background: var(--paper);
+      background: var(--bg);
       color: var(--ink);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+
+    img { display: block; max-width: 100%; }
 
     .wrap {
-      width: min(1120px, calc(100% - 40px));
+      width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
     }
 
     header {
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-      background: rgba(251, 250, 246, 0.9);
-      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+      border-bottom: 1px solid rgba(217, 223, 215, .82);
+      background: rgba(247, 245, 239, .86);
+      backdrop-filter: blur(16px);
     }
 
     nav {
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
     }
 
-    .brand {
-      display: inline-flex;
+    .brand,
+    .nav-links,
+    .actions,
+    .badges,
+    .slide-tabs {
+      display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 10px;
-      font-weight: 800;
-      letter-spacing: 0;
     }
+
+    .brand { font-weight: 850; }
 
     .mark {
       display: grid;
       place-items: center;
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
-      background: var(--sage);
+      background: var(--green);
       color: #fff;
+      font-weight: 850;
     }
 
-    .links {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 14px;
+    .nav-links { color: var(--muted); font-size: 14px; }
+
+    .nav-links a {
+      padding: 7px 10px;
+      border-radius: 8px;
     }
+
+    .nav-links a:hover { background: #fff; }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
+      min-height: 44px;
       padding: 0 18px;
       border-radius: 8px;
-      background: var(--sage);
+      border: 1px solid var(--green);
+      background: var(--green);
       color: #fff;
-      font-weight: 700;
-      border: 1px solid var(--sage);
+      font-weight: 760;
     }
 
     .button.secondary {
       background: transparent;
-      color: var(--sage);
-      border-color: #b8c9bd;
+      color: var(--green);
+      border-color: #b7c8bd;
     }
 
     .hero {
-      padding: 76px 0 54px;
+      padding: 74px 0 38px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: .88fr 1.12fr;
       gap: 44px;
       align-items: center;
     }
 
-    h1 {
-      margin: 0;
-      max-width: 760px;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.04;
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-weight: 820;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
       letter-spacing: 0;
     }
 
+    h1 {
+      margin: 0;
+      font-size: clamp(43px, 7vw, 76px);
+      line-height: 1.04;
+      max-width: 760px;
+    }
+
     .lead {
-      margin: 24px 0 0;
-      max-width: 620px;
+      margin: 22px 0 0;
       color: var(--muted);
-      font-size: 19px;
+      font-size: 18px;
+      max-width: 650px;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 34px;
-    }
+    .actions { margin-top: 32px; }
 
-    .hero img,
-    .shot img {
-      display: block;
-      width: 100%;
-      border-radius: 8px;
+    .badges { margin-top: 22px; color: #4d5d54; }
+
+    .badge {
       border: 1px solid var(--line);
-      box-shadow: 0 24px 70px rgba(40, 50, 45, 0.12);
+      background: rgba(255, 255, 255, .72);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 720;
     }
 
-    .hero img {
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
+    .screen-frame {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(255, 255, 255, .72);
+      box-shadow: var(--shadow);
     }
 
-    section {
-      padding: 54px 0;
+    .screen-frame img {
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #e7e1d7;
     }
+
+    section { padding: 62px 0; }
 
     .section-head {
       display: flex;
-      justify-content: space-between;
       align-items: end;
-      gap: 24px;
-      margin-bottom: 22px;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 24px;
     }
 
     h2 {
       margin: 0;
-      font-size: 34px;
-      line-height: 1.18;
-      letter-spacing: 0;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.15;
     }
 
     .section-head p {
       margin: 0;
-      max-width: 520px;
+      max-width: 560px;
       color: var(--muted);
+    }
+
+    .carousel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .58);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .slides {
+      display: grid;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid #e6e0d7;
+      background: #fff;
+    }
+
+    .slide {
+      grid-area: 1 / 1;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity .28s ease, transform .28s ease, visibility .28s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .slide img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .slide-tabs {
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .slide-tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font: 720 14px inherit;
+      cursor: pointer;
+    }
+
+    .slide-tab.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
     }
 
     .features {
@@ -181,34 +261,31 @@
       gap: 14px;
     }
 
-    .feature {
-      min-height: 150px;
-      padding: 22px;
+    .feature,
+    .step {
+      min-height: 156px;
+      border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--card);
-      border: 1px solid var(--line);
+      padding: 22px;
     }
 
-    .feature:nth-child(2n) {
-      background: var(--sage-soft);
-    }
+    .feature:nth-child(2) { background: var(--blue); }
+    .feature:nth-child(3) { background: var(--green-2); }
+    .feature:nth-child(5) { background: var(--peach); }
+    .feature:nth-child(6) { background: var(--lav); }
 
-    .feature:nth-child(3n) {
-      background: var(--blue);
-    }
-
-    .feature:nth-child(4n) {
-      background: var(--peach);
-    }
-
-    .feature h3 {
+    .feature h3,
+    .step h3 {
       margin: 0 0 8px;
       font-size: 18px;
+      line-height: 1.25;
     }
 
-    .feature p {
+    .feature p,
+    .step p {
       margin: 0;
-      color: #55645b;
+      color: var(--muted);
       font-size: 14px;
     }
 
@@ -219,42 +296,24 @@
       counter-reset: step;
     }
 
-    .step {
-      padding: 20px;
-      border-radius: 8px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      min-height: 150px;
-      counter-increment: step;
-    }
+    .step { counter-increment: step; }
 
     .step::before {
       content: counter(step);
       display: grid;
       place-items: center;
-      width: 30px;
-      height: 30px;
-      margin-bottom: 16px;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 18px;
       border-radius: 8px;
-      background: var(--sage);
+      background: var(--green);
       color: #fff;
-      font-weight: 800;
-    }
-
-    .step h3 {
-      margin: 0 0 8px;
-      font-size: 17px;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
+      font-weight: 850;
     }
 
     .note {
-      margin-top: 18px;
-      padding: 18px 20px;
+      margin-top: 16px;
+      padding: 16px 18px;
       border-radius: 8px;
       border: 1px solid #cbd9cf;
       background: #fff;
@@ -291,7 +350,8 @@
         <span class="mark">T</span>
         <span>TabMori</span>
       </a>
-      <div class="links">
+      <div class="nav-links">
+        <a href="#screenshots">截图</a>
         <a href="#features">功能</a>
         <a href="#install">安装</a>
         <a class="button secondary" href="https://github.com/chuanyue2025/TabMori">GitHub</a>
@@ -303,25 +363,58 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
+          <p class="eyebrow">Chrome New Tab Extension</p>
           <h1>40 个标签页，真正要用时一个都找不到。</h1>
-          <p class="lead">TabMori 是一个干净、轻量的 Chrome 新标签页插件。它会按网站整理标签页，支持搜索当前标签和收藏夹，帮你更快找回正在用的页面。</p>
-          <p class="lead">A clean Chrome new tab extension for organizing too many open tabs, searching bookmarks, and reducing duplicate pages.</p>
+          <p class="lead">TabMori 把打开的标签页按网站整理好，顺手搜标签、搜收藏、找重复页面。不是再加一个复杂工作台，只是让新标签页更好用一点。</p>
+          <p class="lead">A clean Chrome new tab extension for grouping tabs, searching bookmarks, and reducing duplicate pages.</p>
           <div class="actions">
             <a class="button" href="https://github.com/chuanyue2025/TabMori">View on GitHub</a>
-            <a class="button secondary" href="#install">How to install</a>
+            <a class="button secondary" href="#screenshots">See screenshots</a>
+          </div>
+          <div class="badges">
+            <span class="badge">Manifest V3</span>
+            <span class="badge">Local first</span>
+            <span class="badge">No build step</span>
           </div>
         </div>
-        <img src="../assets/cover.png" alt="TabMori cover illustration">
+        <div class="screen-frame">
+          <img src="assets/screenshot-tabs.png" alt="TabMori tab groups screenshot">
+        </div>
       </div>
     </section>
 
-    <section class="shot">
+    <section id="screenshots">
       <div class="wrap">
         <div class="section-head">
-          <h2>打开新标签页，先看清楚。</h2>
-          <p>TabMori keeps your tabs grouped, searchable, and easier to close when they are no longer needed.</p>
+          <h2>多看几眼再决定装不装。</h2>
+          <p>Tabbed screenshots show the main states: grouped tabs, search, bookmarks, and custom naming.</p>
         </div>
-        <img src="../assets/screenshot-home.png" alt="TabMori app screenshot">
+        <div class="carousel" aria-label="TabMori screenshots">
+          <div class="slides">
+            <figure class="slide active">
+              <img src="assets/screenshot-tabs.png" alt="All tabs grouped by website">
+            </figure>
+            <figure class="slide">
+              <img src="assets/screenshot-search.png" alt="Search tabs in TabMori">
+            </figure>
+            <figure class="slide">
+              <img src="assets/screenshot-bookmarks.png" alt="Search Chrome bookmarks in TabMori">
+            </figure>
+            <figure class="slide">
+              <img src="assets/screenshot-rename.png" alt="Rename TabMori page title locally">
+            </figure>
+            <figure class="slide">
+              <img src="assets/cover.png" alt="TabMori cover illustration">
+            </figure>
+          </div>
+          <div class="slide-tabs" role="tablist" aria-label="Choose screenshot">
+            <button class="slide-tab active" type="button" data-slide="0">全部标签</button>
+            <button class="slide-tab" type="button" data-slide="1">搜索</button>
+            <button class="slide-tab" type="button" data-slide="2">收藏</button>
+            <button class="slide-tab" type="button" data-slide="3">自定义</button>
+            <button class="slide-tab" type="button" data-slide="4">封面</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -329,32 +422,32 @@
       <div class="wrap">
         <div class="section-head">
           <h2>功能 / Features</h2>
-          <p>保留最常用的动作，不把新标签页变成另一个复杂仪表盘。</p>
+          <p>保留最常用的整理动作，打开新标签页就能开始用。Simple actions for people who already have too many tabs open.</p>
         </div>
         <div class="features">
           <article class="feature">
             <h3>按网站分组</h3>
-            <p>Group opened tabs by domain so the page is easier to scan.</p>
+            <p>Group open tabs by domain so GitHub, Notion, docs, and articles stop mixing together.</p>
           </article>
           <article class="feature">
             <h3>搜索标签和收藏</h3>
-            <p>Search current tabs and Chrome bookmarks from the same place.</p>
+            <p>Search open tabs and Chrome bookmarks from one new tab page.</p>
           </article>
           <article class="feature">
-            <h3>减少重复打开</h3>
-            <p>Jump back to existing tabs and highlight duplicate pages.</p>
+            <h3>跳回已有页面</h3>
+            <p>Activate an existing tab instead of opening the same page again.</p>
+          </article>
+          <article class="feature">
+            <h3>重复页面</h3>
+            <p>Spot duplicate URLs and clean up the extras quickly.</p>
           </article>
           <article class="feature">
             <h3>稍后阅读</h3>
-            <p>Save pages for later without mixing them with browser bookmarks.</p>
+            <p>Put temporary pages aside without turning bookmarks into a junk drawer.</p>
           </article>
           <article class="feature">
-            <h3>整组关闭</h3>
-            <p>Close a group when that context is finished.</p>
-          </article>
-          <article class="feature">
-            <h3>纯本地</h3>
-            <p>No account, no backend, no analytics, no external API.</p>
+            <h3>纯本地运行</h3>
+            <p>No backend, no account, no analytics. Data stays in Chrome local storage.</p>
           </article>
         </div>
       </div>
@@ -364,7 +457,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2>安装 / Install</h2>
-          <p>现在先通过 ZIP 安装。Chrome 本地插件需要开启开发者模式。</p>
+          <p>当前通过 ZIP 安装。Chrome 本地扩展需要先开启开发者模式。Install from ZIP with Chrome Developer mode enabled.</p>
         </div>
         <div class="install">
           <article class="step">
@@ -392,5 +485,23 @@
   <footer>
     <div class="wrap">MIT License. Built by Jack.</div>
   </footer>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const tabs = Array.from(document.querySelectorAll('.slide-tab'));
+    let active = 0;
+
+    function showSlide(index) {
+      active = index;
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => showSlide(index));
+    });
+
+    setInterval(() => showSlide((active + 1) % slides.length), 4200);
+  </script>
 </body>
 </html>
